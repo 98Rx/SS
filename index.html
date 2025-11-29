@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stock Update Sender - Dark Mode</title>
+<style>
+    body {
+        font-family: Arial;
+        padding: 20px;
+        background: #121212;
+        color: #f1f1f1;
+    }
+    label { font-weight: bold; margin-top: 10px; display: block; }
+    input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border-radius: 6px;
+        background: #1f1f1f;
+        border: 1px solid #444;
+        color: white;
+    }
+    button {
+        padding: 12px;
+        margin-top: 20px;
+        width: 100%;
+        background: #0a7c0a;
+        color: white;
+        border: none;
+        font-size: 18px;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    .product-row {
+        display: flex;
+        gap: 10px;
+        margin-top: 8px;
+    }
+    .product-row span {
+        width: 200px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Stock Update WhatsApp Sender</h2>
+
+<label>Select Account</label>
+<select id="account">
+    <option value="">-- Choose --</option>
+
+    <option disabled>--- Abeer Group ---</option>
+    <option>Abeer Al Ajwad PC</option>
+    <option>Abeer Azizya PC</option>
+    <option>Abeer Bawadi PC</option>
+    <option>Abeer Express Hamadaneya PC</option>
+    <option>Abeer Express Senaeya PC</option>
+    <option>Abeer Hassan Ghazzawi Hospital</option>
+    <option>Abeer Hail - Al Rowis</option>
+    <option>Abeer Sharafeya PC</option>
+
+    <option disabled>-------</option>
+    <option>Al Hanan - Al Waziriyah</option>
+
+    <option disabled>--- AL MAS -------</option>
+    <option>Al Mas 1 Ideal P.C - Hiraa</option>
+    <option>Al Mas 2 Ideal P.C - Quraish</option>
+    <option>Al Mas 3 Ideal P.C - Shifa Al Bawadi P.C</option>
+
+    <option disabled>-------</option>
+    <option>Al Raheli P.C</option>
+
+    <option disabled>---- Al Rayan Group ----</option>
+    <option>Al Rayan Int. P.C - Sharafeya</option>
+    <option>Jeddah National Hospital - Nuzha</option>
+    <option>Badr Al Rayan P.C - Sharafeya</option>
+    <option>Salama P.C - Industrial</option>
+    <option>Sameera P.C - Al Azizyah</option>
+    <option>Taj P.C - Gholail</option>
+    <option>Jeddah National Hospital</option>
+
+    <option disabled>-------</option>
+    <option>Al Sahli 1 P.C - Al Marwa</option>
+    <option>Al Sahli 2 P.C - Al Hamdaneya</option>
+
+    <option disabled>-------</option>
+    <option>Al Sameria P.C - Al Nassim</option>
+    <option>Al Sameria P.C - Al Samer</option>
+
+    <option disabled>-------</option>
+    <option>Al Yasmin P.C - Kilo 14</option>
+
+    <option disabled>-------</option>
+    <option>Balghsoon P.C</option>
+
+    <option disabled>-------</option>
+    <option>Badruddin P.C - Al Bawadi</option>
+
+    <option disabled>-------</option>
+    <option>Bani Malik P.C</option>
+
+    <option disabled>-------</option>
+    <option>Dr Sulaiman Al Habib Medical Hospital - Al-Mohammadiyah - Jeddah</option>
+
+    <option disabled>-------</option>
+    <option>Elixir P.C - Al-Hamadaneya</option>
+    <option>Elixir P.C - Obhur</option>
+
+    <option disabled>-------</option>
+    <option>Hala Eissa Bin Laden Hosp. - Al Hamraa</option>
+    <option>Hala Eissa Bin Laden P.C - Mishrefah</option>
+
+    <option disabled>-------</option>
+    <option>Jarrash P.C - Jeddah Briman</option>
+
+    <option disabled>-------</option>
+    <option>Khalid P.C 1 - Al Rawabi</option>
+    <option>Khalid P.C 2 - Al Samer</option>
+
+    <option disabled>-------</option>
+    <option>M. Al Jedaani P.C. Al - Ajaweed</option>
+    <option>M. Al Jedaani P.C. Al - Khomrah</option>
+
+    <option disabled>-------</option>
+    <option>Nassim Jeddah P.C</option>
+
+    <option disabled>-------</option>
+    <option>New Gholail P.C - Habib 10</option>
+
+    <option disabled>-------</option>
+    <option>Olas P.C (Deem)</option>
+
+    <option disabled>-------</option>
+    <option>Prince Medical Center Badr Al Tamam</option>
+
+    <option disabled>------ SGH ------</option>
+    <option>Saudi German Hospital Al-Rehab - Jeddah Branch</option>
+
+    <option disabled>------ Shifa Jeddah Group ------</option>
+    <option>Shifa Alwaha</option>
+    <option>Shifa Jeddah P.C - Al Khomraa</option>
+    <option disabled>------</option>
+    <option>Shifa Medical Center - Bait Al Maqdes</option>
+</select>
+
+<hr>
+
+<h3>Products</h3>
+<div id="products">
+    <div class="product-row product"><span class="name">Liptyn 5mg</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmy 20mg</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmy 40mg</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmevasc 20/5</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmevasc 40/5</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Omlevasc 20/10</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmevasc 40/10</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmazide 20/12.5</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmazide 40/12.5</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Olmazide 40/25</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Allocar 5mg</span><input class="value" type="number"></div>
+    <div class="product-row product"><span class="name">Eulax</span><input class="value" type="number"></div>
+</div>
+
+<hr>
+
+<label>Note</label>
+<textarea id="note" rows="4" placeholder="Write notes..."></textarea>
+
+<label>Last Consumption</label>
+<textarea id="lastConsumption" rows="6" placeholder="Paste last week's message..."></textarea>
+
+<button onclick="sendToWhatsApp()">Send to WhatsApp</button>
+
+<script>
+function sendToWhatsApp() {
+    const account = document.getElementById("account").value;
+    const note = document.getElementById("note").value.trim();
+    const lastMsg = document.getElementById("lastConsumption").value;
+
+    const today = new Date();
+    const dateStr = today.toLocaleDateString("en-GB", { day: "2-digit", month: "short" });
+
+    const lastData = {};
+    lastMsg.split("\n").forEach(line => {
+        const parts = line.split("=");
+        if (parts.length === 2) {
+            const name = parts[0].trim();
+            const values = parts[1].trim().split(/[\s-]+/);
+            lastData[name] = values;
+        }
+    });
+
+    let message = `*${account}*\n${dateStr}\n\n`;
+
+    document.querySelectorAll(".product").forEach(p => {
+        const name = p.querySelector(".name").innerText.trim();
+        const newVal = p.querySelector(".value").value.trim();
+        if (newVal === "") return;
+
+        if (lastData[name]) {
+            const oldVals = lastData[name];
+            const all = [...oldVals, newVal];
+            message += `${name} = ${all.join("-")}\n`;
+        } else {
+            message += `${name} = ${newVal}\n`;
+        }
+    });
+
+    if (note !== "") {
+        message += `\n*Note:*\n${note}\n`;
+    }
+
+    const url = "https://wa.me/?text=" + encodeURIComponent(message);
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
