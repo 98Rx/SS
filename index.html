@@ -13,12 +13,13 @@
     label { font-weight: bold; margin-top: 10px; display: block; }
     input, select, textarea {
         width: 100%;
-        padding: 8px;
-        margin-top: 5px;
+        padding: 10px;
+        margin-top: 10px;
         border-radius: 6px;
         background: #1f1f1f;
         border: 1px solid #444;
         color: white;
+        font-size: 15px;
     }
     button {
         padding: 12px;
@@ -30,14 +31,6 @@
         font-size: 18px;
         border-radius: 6px;
         cursor: pointer;
-    }
-    .product-row {
-        display: flex;
-        gap: 10px;
-        margin-top: 8px;
-    }
-    .product-row span {
-        width: 200px;
     }
 </style>
 </head>
@@ -139,6 +132,7 @@
     <option disabled>------ Shifa Jeddah Group ------</option>
     <option>Shifa Alwaha</option>
     <option>Shifa Jeddah P.C - Al Khomraa</option>
+
     <option disabled>------</option>
     <option>Shifa Medical Center - Bait Al Maqdes</option>
 </select>
@@ -146,20 +140,23 @@
 <hr>
 
 <h3>Products</h3>
-<div id="products">
-    <div class="product-row product"><span class="name">Liptyn 5mg</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmy 20mg</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmy 40mg</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmevasc 20/5</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmevasc 40/5</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Omlevasc 20/10</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmevasc 40/10</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmazide 20/12.5</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmazide 40/12.5</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Olmazide 40/25</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Allocar 5mg</span><input class="value" type="number"></div>
-    <div class="product-row product"><span class="name">Eulax</span><input class="value" type="number"></div>
-</div>
+
+<input class="product" data-name="Liptyn 5mg" placeholder="Liptyn 5mg ">
+<input class="product" data-name="Olmy 20mg" placeholder="Olmy 20mg ">
+<input class="product" data-name="Olmy 40mg" placeholder="Olmy 40mg ">
+<input class="product" data-name="Olmevasc 20/5" placeholder="Olmevasc 20/5 ">
+<input class="product" data-name="Olmevasc 40/5" placeholder="Olmevasc 40/5 ">
+<input class="product" data-name="Olmevasc 20/10" placeholder="Olmevasc 20/10 ">
+<input class="product" data-name="Olmevasc 40/10" placeholder="Olmevasc 40/10 ">
+<input class="product" data-name="Olmazide 20/12.5" placeholder="Olmazide 20/12.5 ">
+<input class="product" data-name="Olmazide 40/12.5" placeholder="Olmazide 40/12.5 ">
+<input class="product" data-name="Allocar 5mg" placeholder="Allocar 5mg ">
+<input class="product" data-name="Eulax" placeholder="Eulax ">
+<input class="product" data-name="Tadil 2.5" placeholder="Tadil 2.5 ">
+<input class="product" data-name="Tadil 5mg" placeholder="Tadil 5mg =">
+<input class="product" data-name="Tadil 20mg 1T" placeholder="Tadil 20mg 1T ">
+<input class="product" data-name="Tadil 20mg 2T" placeholder="Tadil 20mg 2T ">
+<input class="product" data-name="Tadil 20mg 10T" placeholder="Tadil 20mg 10T ">
 
 <hr>
 
@@ -185,7 +182,7 @@ function sendToWhatsApp() {
         const parts = line.split("=");
         if (parts.length === 2) {
             const name = parts[0].trim();
-            const values = parts[1].trim().split(/[\s-]+/);
+            const values = parts[1].trim().split("-");
             lastData[name] = values;
         }
     });
@@ -193,13 +190,12 @@ function sendToWhatsApp() {
     let message = `*${account}*\n${dateStr}\n\n`;
 
     document.querySelectorAll(".product").forEach(p => {
-        const name = p.querySelector(".name").innerText.trim();
-        const newVal = p.querySelector(".value").value.trim();
+        const name = p.dataset.name;
+        const newVal = p.value.trim();
         if (newVal === "") return;
 
         if (lastData[name]) {
-            const oldVals = lastData[name];
-            const all = [...oldVals, newVal];
+            const all = [...lastData[name], newVal];
             message += `${name} = ${all.join("-")}\n`;
         } else {
             message += `${name} = ${newVal}\n`;
